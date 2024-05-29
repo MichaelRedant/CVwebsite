@@ -1,6 +1,6 @@
 <template>
   <v-app-bar app :class="{ 'scrolled': isScrolled }" flat>
-    <v-app-bar-nav-icon @click="drawer = !drawer" class="d-md-none"></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon @click="drawer = !drawer" class="d-lg-none"></v-app-bar-nav-icon>
     <v-toolbar-title class="header-title fade-in">
       <transition name="fade">
         <v-img v-if="showNavImage" src="@/assets/profile.jpeg" alt="Michaël Redant" class="nav-profile-img" ref="navImage"></v-img>
@@ -8,19 +8,20 @@
       {{ name }}
     </v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-btn text class="header-btn d-none d-md-flex" :class="{ active: isActive('/') }" to="/">Home</v-btn>
-    <v-btn text class="header-btn d-none d-md-flex" :class="{ active: isActive('/about') }" to="/about">Over Michaël</v-btn>
-    <v-btn text class="header-btn d-none d-md-flex" :class="{ active: isActive('/education') }" to="/education">Opleidingen</v-btn>
-    <v-btn text class="header-btn d-none d-md-flex" :class="{ active: isActive('/skills') }" to="/skills">Skills</v-btn>
-    <v-btn text class="header-btn d-none d-md-flex" :class="{ active: isActive('/experience') }" to="/experience">Ervaring</v-btn>
-    <v-btn text class="header-btn d-none d-md-flex" :class="{ active: isActive('/engagement') }" to="/engagement">Engagement</v-btn>
-    <v-btn text class="header-btn d-none d-md-flex" :class="{ active: isActive('/contact') }" to="/contact">Contact</v-btn>
+    <v-btn text class="header-btn d-none d-lg-flex" :class="{ active: isActive('/') }" to="/">Home</v-btn>
+    <v-btn text class="header-btn d-none d-lg-flex" :class="{ active: isActive('/about') }" to="/about">Over Michaël</v-btn>
+    <v-btn text class="header-btn d-none d-lg-flex" :class="{ active: isActive('/education') }" to="/education">Opleidingen</v-btn>
+    <v-btn text class="header-btn d-none d-lg-flex" :class="{ active: isActive('/skills') }" to="/skills">Skills</v-btn>
+    <v-btn text class="header-btn d-none d-lg-flex" :class="{ active: isActive('/experience') }" to="/experience">Ervaring</v-btn>
+    <v-btn text class="header-btn d-none d-lg-flex" :class="{ active: isActive('/engagement') }" to="/engagement">Sociaal Engagement</v-btn>
+    <v-btn text class="header-btn d-none d-lg-flex" :class="{ active: isActive('/contact') }" to="/contact">Contact</v-btn>
     <v-navigation-drawer
       v-model="drawer"
       app
       temporary
       right
-      class="d-md-none"
+      absolute
+      class="d-lg-none"
     >
       <v-list>
         <v-list-item @click="navigateTo('/')">
@@ -39,7 +40,7 @@
           <v-list-item-title>Ervaring</v-list-item-title>
         </v-list-item>
         <v-list-item @click="navigateTo('/engagement')">
-          <v-list-item-title>Engagement</v-list-item-title>
+          <v-list-item-title>Sociaal Engagement</v-list-item-title>
         </v-list-item>
         <v-list-item @click="navigateTo('/contact')">
           <v-list-item-title>Contact</v-list-item-title>
@@ -88,7 +89,7 @@ export default {
 
 <style scoped>
 .header-title {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 300;
   display: flex;
@@ -135,5 +136,23 @@ export default {
 
 .v-app-bar.scrolled {
   background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.v-navigation-drawer {
+  z-index: 2000; /* Zorg ervoor dat de navigatie op de voorgrond staat */
+  background-color: white; /* Instellen van een achtergrondkleur */
+}
+
+.v-navigation-drawer .v-list-item {
+  cursor: pointer;
+}
+
+@media (max-width: 1072px) {
+  .d-lg-none {
+    display: flex !important;
+  }
+  .d-none.d-lg-flex {
+    display: none !important;
+  }
 }
 </style>

@@ -139,6 +139,13 @@ export default {
 </script>
 
 <style scoped>
+.headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
 .education-container {
   margin-top: 20px;
   animation: fadeIn 1s ease-in;

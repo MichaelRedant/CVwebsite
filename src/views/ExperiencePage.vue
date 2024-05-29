@@ -88,6 +88,12 @@
   </script>
   
   <style scoped>
+  .headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
   .experience-container {
     margin-top: 20px;
   }

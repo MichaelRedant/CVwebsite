@@ -47,6 +47,10 @@ export default new Router({
       path: '/engagement',
       name: 'EngagementPage',
       component: EngagementPage
+    },
+    {
+      path: '*',  // Wildcard route to handle unknown routes
+      redirect: '/'
     }
   ]
 });

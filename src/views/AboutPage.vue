@@ -51,6 +51,12 @@ export default {
 </script>
 
 <style scoped>
+.headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
 .about-container {
   margin-top: 20px;
 }
@@ -63,13 +69,6 @@ export default {
 
 .about-card {
   padding: 20px;
-}
-
-.headline {
-  font-family: 'Roboto', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 20px;
 }
 
 .slide-fade-enter-active {

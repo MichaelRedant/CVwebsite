@@ -32,34 +32,6 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="12" md="6">
-        <v-card class="home-card">
-          <v-card-title>Recente Projecten</v-card-title>
-          <v-card-text>
-            <ul class="project-list">
-              <li>
-                <a href="https://octopus.be" target="_blank">Octopus Accountancy Software (Allround Marketeer)</a>
-              </li>
-              <li>
-                <a href="https://Pixapop.be" target="_blank">Pixapop.be (Marketing opdrachten: Google Ads en Meta Ads)</a>
-              </li>
-              <li>
-                <a href="https://github.com/MichaelRedant/golfbiljarttoernooi" target="_blank">Golfbiljart applicatie</a>
-              </li>
-              <li>
-                <a href="https://Cirusso.com" target="_blank">Website & webshop Cirusso Art</a>
-              </li>
-              <li>
-                <a href="https://X3DPrints.be" target="_blank">Website & webshop X3DPrints</a>
-              </li>
-              <li>
-                <a href="https://github.com/MichaelRedant/BoysAndGirlsApp" target="_blank">Boys & Girls website met backend</a>
-              </li>
-            </ul>
-            <p>Voor alle projecten, check <a href="https://Xinudesign.be" target="_blank">Xinudesign.be</a></p>
-          </v-card-text>
-        </v-card>
-      </v-col>
     </v-row>
     <v-row justify="center" class="contact-row">
       <v-col cols="12" md="6">
@@ -95,6 +67,13 @@ export default {
 </script>
 
 <style scoped>
+
+.headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
 .home-container {
   margin-top: 20px;
   animation: fadeIn 1s ease-in;

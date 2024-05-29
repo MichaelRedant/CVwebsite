@@ -263,11 +263,10 @@ export default {
 }
 
 .headline {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   font-weight: 400;
   margin-bottom: 20px;
-  text-align: center;
 }
 
 .search-container {
