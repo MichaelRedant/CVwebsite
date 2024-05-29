@@ -5,8 +5,8 @@ import AboutPage from '@/views/AboutPage.vue';
 import EducationPage from '@/views/EducationPage.vue';
 import SkillsPage from '@/views/SkillsPage.vue';
 import ExperiencePage from '@/views/ExperiencePage.vue';
-import PortfolioPage from '@/views/PortfolioPage.vue';
 import ContactPage from '@/views/ContactPage.vue';
+import EngagementPage from '@/views/EngagementPage.vue';
 
 Vue.use(Router);
 
@@ -39,14 +39,14 @@ export default new Router({
       component: ExperiencePage
     },
     {
-      path: '/portfolio',
-      name: 'PortfolioPage',
-      component: PortfolioPage
-    },
-    {
       path: '/contact',
       name: 'ContactPage',
       component: ContactPage
+    },
+    {
+      path: '/engagement',
+      name: 'EngagementPage',
+      component: EngagementPage
     }
   ]
 });

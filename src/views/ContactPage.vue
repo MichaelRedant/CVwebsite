@@ -27,9 +27,15 @@
             label="Bericht"
             required
           ></v-textarea>
+          <!-- Honeypot veld -->
+          <v-text-field
+            v-model="address"
+            label="Adres"
+            class="honeypot"
+          ></v-text-field>
           <v-btn :disabled="!valid" color="primary" type="submit">Verstuur</v-btn>
         </v-form>
-        <v-alert v-if="alertMessage" type="success" dismissible @input="alertMessage = ''">{{ alertMessage }}</v-alert>
+        <v-alert v-if="alertMessage" :type="alertType" dismissible @input="alertMessage = ''">{{ alertMessage }}</v-alert>
         <div class="contact-info">
           <p>Email: michael@xinudesign.be</p>
           <p>Telefoon: +32 0496.90.85.03</p>
@@ -40,8 +46,6 @@
 </template>
 
 <script>
-import emailjs from 'emailjs-com';
-
 export default {
   name: 'ContactPage',
   data() {
@@ -51,7 +55,9 @@ export default {
       email: '',
       phone: '',
       message: '',
+      address: '', // Honeypot veld
       alertMessage: '',
+      alertType: 'success',
       rules: {
         required: value => !!value || 'Verplicht.',
         email: value => /.+@.+\..+/.test(value) || 'E-mailadres moet geldig zijn.'
@@ -60,28 +66,40 @@ export default {
   },
   methods: {
     sendEmail() {
-      const templateParams = {
-        from_name: this.name,
-        from_email: this.email,
-        phone: this.phone,
-        message: this.message
-      };
+      const formData = new FormData();
+      formData.append('name', this.name);
+      formData.append('email', this.email);
+      formData.append('phone', this.phone);
+      formData.append('message', this.message);
+      formData.append('address', this.address); // Honeypot veld
 
-      emailjs.send('service_mgc4cvq', 'template_wvpgibx', templateParams, '-sGG7XerTMORdNsUw')
-        .then((response) => {
-          console.log('SUCCESS!', response.status, response.text);
-          this.alertMessage = 'Bericht succesvol verstuurd!';
+      fetch('send_email.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          this.alertType = 'success';
+          this.alertMessage = data.message;
           this.resetForm();
-        }, (error) => {
-          console.log('FAILED...', error);
-          this.alertMessage = 'Er is iets misgegaan. Probeer het opnieuw.';
-        });
+        } else {
+          this.alertType = 'error';
+          this.alertMessage = data.message;
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        this.alertType = 'error';
+        this.alertMessage = 'Er is iets misgegaan. Probeer het opnieuw.';
+      });
     },
     resetForm() {
       this.name = '';
       this.email = '';
       this.phone = '';
       this.message = '';
+      this.address = ''; // Reset honeypot veld
       this.$refs.form.reset();
     }
   }
@@ -111,5 +129,10 @@ export default {
   font-size: 16px;
   font-weight: 300;
   margin: 5px 0;
+}
+
+/* Verberg honeypot veld voor normale gebruikers */
+.honeypot {
+  display: none;
 }
 </style>

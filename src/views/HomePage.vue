@@ -1,193 +1,247 @@
 <template>
-    <v-container class="home-container">
-      <v-row align="center" justify="center">
-        <v-col cols="12" md="8" class="text-center">
-          <transition name="slide-fade">
-            <v-img v-if="showProfileImage" src="@/assets/profile.jpeg" alt="Michaël Redant" class="home-profile-img" ref="profileImage"></v-img>
-          </transition>
-          <h1 class="home-title">Michaël Redant</h1>
-          <h2 class="home-subtitle">Marketeer & Freelance Webdesigner</h2>
-          <p class="home-description">
-            Ik ben een toegewijde marketeer en freelance webdesigner. Mijn passie ligt in digitale contentcreatie en ik ben voortdurend gefascineerd door de ontwikkelingen in marketing binnen het digitale tijdperk.
-          </p>
-          <v-btn color="primary" class="home-btn" @click="navigateTo('about')">Meer over mij</v-btn>
-        </v-col>
-      </v-row>
-      <v-row class="skills-row">
-        <v-col cols="12">
-          <h2 class="skills-title">Vaardigheden</h2>
-          <v-chip-group class="skills-chip-group">
-            <v-chip class="skill-chip" v-for="skill in skills" :key="skill">{{ skill }}</v-chip>
-          </v-chip-group>
-          <v-btn text color="primary" class="link-to-skills" @click="navigateTo('skills')">Meer vaardigheden</v-btn>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" md="6">
-          <v-card class="home-card">
-            <v-card-title>Recente Projecten</v-card-title>
-            <v-card-text>
-              <ul>
-                <li>Project 1: Website voor X3DPrints</li>
-                <li>Project 2: Marketingcampagne voor Octopus Accountancy Software</li>
-              </ul>
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="12" md="6">
-          <v-card class="home-card">
-            <v-card-title>Contact</v-card-title>
-            <v-card-text>
-              <p>Neem contact met mij op voor samenwerkingen of freelance werk.</p>
-              <v-btn color="primary" class="home-btn" @click="navigateTo('contact')">Contacteer mij</v-btn>
-            </v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </template>
-  
-  <script>
-  export default {
-    name: 'HomePage',
-    data() {
-      return {
-        showProfileImage: true,
-        skills: ['Marketing', 'Webdesign', 'SEO', '3D-printen', 'Adobe Creative Suite', 'JavaScript', 'Vue.js', 'Google Analytics', 'Content Creation', 'Social Media']
-      };
-    },
-    methods: {
-      navigateTo(page) {
-        setTimeout(() => {
-          this.$router.push({ path: `/${page}` });
-        }, 300);
-      }
+  <v-container class="home-container">
+    <v-row align="center" justify="center">
+      <v-col cols="12" md="8" class="text-center">
+        <transition name="slide-fade">
+          <v-img v-if="showProfileImage" src="@/assets/profile.jpeg" alt="Michaël Redant" class="home-profile-img" ref="profileImage"></v-img>
+        </transition>
+        <h1 class="home-title">Michaël Redant</h1>
+        <h2 class="home-subtitle">Marketeer, (Web)designer & Allround geek</h2>
+        <p class="home-description">
+          Ik ben op zoek naar een uitdaging in marketing. Ik ben een toegewijde marketeer en webdesigner. Mijn passie ligt in digitale contentcreatie en ik ben voortdurend gefascineerd door de ontwikkelingen in technologie en marketing binnen het digitale tijdperk.
+        </p>
+        <v-btn color="primary" class="home-btn" @click="navigateTo('about')">Meer over mij</v-btn>
+      </v-col>
+    </v-row>
+    <v-row class="skills-row">
+      <v-col cols="12">
+        <h2 class="skills-title">Vaardigheden</h2>
+        <v-chip-group class="skills-chip-group">
+          <v-chip class="skill-chip" v-for="skill in marketingSkills" :key="skill">{{ skill }}</v-chip>
+        </v-chip-group>
+        <v-btn text color="primary" class="link-to-skills" @click="navigateTo('skills')">Meer vaardigheden</v-btn>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12" md="6">
+        <v-card class="home-card">
+          <v-card-title>Sociaal Engagement</v-card-title>
+          <v-card-text>
+            <p>Lees meer over mijn betrokkenheid bij verschillende organisaties en mijn rol daarin.</p>
+            <v-btn color="primary" class="home-btn" @click="navigateTo('engagement')">Sociaal Engagement</v-btn>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12" md="6">
+        <v-card class="home-card">
+          <v-card-title>Recente Projecten</v-card-title>
+          <v-card-text>
+            <ul class="project-list">
+              <li>
+                <a href="https://octopus.be" target="_blank">Octopus Accountancy Software (Allround Marketeer)</a>
+              </li>
+              <li>
+                <a href="https://Pixapop.be" target="_blank">Pixapop.be (Marketing opdrachten: Google Ads en Meta Ads)</a>
+              </li>
+              <li>
+                <a href="https://github.com/MichaelRedant/golfbiljarttoernooi" target="_blank">Golfbiljart applicatie</a>
+              </li>
+              <li>
+                <a href="https://Cirusso.com" target="_blank">Website & webshop Cirusso Art</a>
+              </li>
+              <li>
+                <a href="https://X3DPrints.be" target="_blank">Website & webshop X3DPrints</a>
+              </li>
+              <li>
+                <a href="https://github.com/MichaelRedant/BoysAndGirlsApp" target="_blank">Boys & Girls website met backend</a>
+              </li>
+            </ul>
+            <p>Voor alle projecten, check <a href="https://Xinudesign.be" target="_blank">Xinudesign.be</a></p>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row justify="center" class="contact-row">
+      <v-col cols="12" md="6">
+        <v-card class="home-card contact-card">
+          <v-card-title>Contact</v-card-title>
+          <v-card-text>
+            <p>Neem contact met mij op voor samenwerkingen of freelance werk.</p>
+            <v-btn color="primary" class="home-btn" @click="navigateTo('contact')">Contacteer mij</v-btn>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script>
+export default {
+  name: 'HomePage',
+  data() {
+    return {
+      showProfileImage: true,
+      marketingSkills: ['Online Marketing', 'Content Creation', 'Social Media', 'SEO', 'Google Analytics', 'Google Ads', 'Meta Ads', 'Email Marketing', 'Brand Strategy']
+    };
+  },
+  methods: {
+    navigateTo(page) {
+      setTimeout(() => {
+        this.$router.push({ path: `/${page}` });
+      }, 300);
     }
   }
-  </script>
-  
-  <style scoped>
-  .home-container {
-    margin-top: 20px;
-    animation: fadeIn 1s ease-in;
+}
+</script>
+
+<style scoped>
+.home-container {
+  margin-top: 20px;
+  animation: fadeIn 1s ease-in;
+}
+
+.home-profile-img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  animation: bounceIn 1s ease;
+}
+
+.home-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  animation: slideInFromLeft 1s ease;
+}
+
+.home-subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  animation: slideInFromRight 1s ease;
+}
+
+.home-description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease;
+}
+
+.home-btn {
+  margin-top: 10px;
+  animation: bounceIn 1s ease;
+}
+
+.skills-row {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.skills-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease;
+}
+
+.skills-chip-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skill-chip {
+  font-size: 16px;
+  margin: 5px;
+  animation: fadeIn 2s ease;
+}
+
+.link-to-skills {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-card {
+  padding: 20px;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease;
+}
+
+.contact-row {
+  margin-top: 40px;
+}
+
+.contact-card {
+  text-align: center;
+}
+
+.project-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.project-list li {
+  margin-bottom: 10px;
+}
+
+.project-list a {
+  text-decoration: none;
+  color: #42a5f5;
+  font-weight: 500;
+}
+
+.project-list a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .home-profile-img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    margin-bottom: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    animation: bounceIn 1s ease;
+  to {
+    opacity: 1;
   }
-  
-  .home-title {
-    font-family: 'Roboto', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    animation: slideInFromLeft 1s ease;
+}
+
+@keyframes bounceIn {
+  from {
+    transform: scale(0);
   }
-  
-  .home-subtitle {
-    font-family: 'Roboto', sans-serif;
-    font-size: 24px;
-    font-weight: 300;
-    margin-bottom: 20px;
-    animation: slideInFromRight 1s ease;
+  to {
+    transform: scale(1);
   }
-  
-  .home-description {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    margin-bottom: 20px;
-    animation: fadeIn 1.5s ease;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
   }
-  
-  .home-btn {
-    margin-top: 10px;
-    animation: bounceIn 1s ease;
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
-  .skills-row {
-    margin-top: 40px;
-    margin-bottom: 40px;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
   }
-  
-  .skills-title {
-    font-family: 'Roboto', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 20px;
-    animation: fadeIn 1.5s ease;
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
-  .skills-chip-group {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .skill-chip {
-    font-size: 16px;
-    margin: 5px;
-    animation: fadeIn 2s ease;
-  }
-  
-  .link-to-skills {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .home-card {
-    padding: 20px;
-    margin-bottom: 20px;
-    animation: fadeIn 2s ease;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes bounceIn {
-    from {
-      transform: scale(0);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
-  
-  @keyframes slideInFromLeft {
-    from {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideInFromRight {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  </style>
-  
+}
+</style>
