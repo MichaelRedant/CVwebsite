@@ -3,42 +3,14 @@
     <v-row justify="center">
       <v-col cols="12" md="8">
         <h1 class="contact-title">Contacteer mij</h1>
-        <v-form ref="form" v-model="valid" @submit.prevent="sendEmail">
-          <v-text-field
-            v-model="name"
-            :rules="[rules.required]"
-            label="Naam"
-            required
-          ></v-text-field>
-          <v-text-field
-            v-model="email"
-            :rules="[rules.required, rules.email]"
-            label="E-mailadres"
-            required
-          ></v-text-field>
-          <v-text-field
-            v-model="phone"
-            label="Telefoonnummer"
-            required
-          ></v-text-field>
-          <v-textarea
-            v-model="message"
-            :rules="[rules.required]"
-            label="Bericht"
-            required
-          ></v-textarea>
-          <!-- Honeypot veld -->
-          <v-text-field
-            v-model="address"
-            label="Adres"
-            class="honeypot"
-          ></v-text-field>
-          <v-btn :disabled="!valid" color="primary" type="submit">Verstuur</v-btn>
-        </v-form>
-        <v-alert v-if="alertMessage" :type="alertType" dismissible @input="alertMessage = ''">{{ alertMessage }}</v-alert>
         <div class="contact-info">
-          <p>Email: michael@xinudesign.be</p>
-          <p>Telefoon: +32 0496.90.85.03</p>
+          <p>Email: <a :href="mailtoLink">michael@xinudesign.be</a></p>
+          <p>Telefoon: <a :href="telLink">+32 0496.90.85.03</a></p>
+          <div class="social-icons">
+            <a v-for="icon in socialIcons" :key="icon.link" :href="icon.link" target="_blank">
+              <v-icon>{{ icon.name }}</v-icon>
+            </a>
+          </div>
         </div>
       </v-col>
     </v-row>
@@ -50,58 +22,14 @@ export default {
   name: 'ContactPage',
   data() {
     return {
-      valid: false,
-      name: '',
-      email: '',
-      phone: '',
-      message: '',
-      address: '', // Honeypot veld
-      alertMessage: '',
-      alertType: 'success',
-      rules: {
-        required: value => !!value || 'Verplicht.',
-        email: value => /.+@.+\..+/.test(value) || 'E-mailadres moet geldig zijn.'
-      }
+      mailtoLink: 'mailto:michael@xinudesign.be',
+      telLink: 'tel:+320496908503',
+      socialIcons: [
+        { name: 'mdi-linkedin', link: 'https://www.linkedin.com/in/michael-redant' },
+        { name: 'mdi-instagram', link: 'https://www.instagram.com/m_redant/' },
+        { name: 'mdi-facebook', link: 'https://www.facebook.com/mredant1' }
+      ]
     };
-  },
-  methods: {
-    sendEmail() {
-      const formData = new FormData();
-      formData.append('name', this.name);
-      formData.append('email', this.email);
-      formData.append('phone', this.phone);
-      formData.append('message', this.message);
-      formData.append('address', this.address); // Honeypot veld
-
-      fetch('send_email.php', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.status === 'success') {
-          this.alertType = 'success';
-          this.alertMessage = data.message;
-          this.resetForm();
-        } else {
-          this.alertType = 'error';
-          this.alertMessage = data.message;
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        this.alertType = 'error';
-        this.alertMessage = 'Er is iets misgegaan. Probeer het opnieuw.';
-      });
-    },
-    resetForm() {
-      this.name = '';
-      this.email = '';
-      this.phone = '';
-      this.message = '';
-      this.address = ''; // Reset honeypot veld
-      this.$refs.form.reset();
-    }
   }
 }
 </script>
@@ -120,7 +48,6 @@ export default {
 }
 
 .contact-info {
-  margin-top: 20px;
   text-align: center;
 }
 
@@ -131,8 +58,28 @@ export default {
   margin: 5px 0;
 }
 
-/* Verberg honeypot veld voor normale gebruikers */
-.honeypot {
-  display: none;
+.contact-info a {
+  text-decoration: none;
+  color: #42a5f5;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  font-size: 24px;
+  margin: 0 10px;
+  color: #42a5f5;
+}
+
+.social-icons a:hover {
+  color: #1e88e5;
 }
 </style>

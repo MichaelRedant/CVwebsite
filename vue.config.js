@@ -1,5 +1,5 @@
 module.exports = {
-  transpileDependencies: [
-    // Voeg hier eventuele dependencies toe die getranspiled moeten worden
-  ]
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/CVwebsite/' // Vervang 'cvwebsite' door de naam van je repository
+    : '/'
 }
