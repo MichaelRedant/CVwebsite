@@ -66,7 +66,7 @@
         <v-card class="home-card contact-card">
           <v-card-title>Contact</v-card-title>
           <v-card-text>
-            <p>Neem contact met mij op voor samenwerkingen of freelance werk.</p>
+            <p>Neem contact met mij op voor een interessante job aanbieding!</p>
             <v-btn color="primary" class="home-btn" @click="navigateTo('contact')">Contacteer mij</v-btn>
           </v-card-text>
         </v-card>
