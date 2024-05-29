@@ -13,6 +13,7 @@
     <v-btn text class="header-btn d-none d-md-flex" :class="{ active: isActive('/education') }" to="/education">Opleidingen</v-btn>
     <v-btn text class="header-btn d-none d-md-flex" :class="{ active: isActive('/skills') }" to="/skills">Skills</v-btn>
     <v-btn text class="header-btn d-none d-md-flex" :class="{ active: isActive('/experience') }" to="/experience">Ervaring</v-btn>
+    <v-btn text class="header-btn d-none d-md-flex" :class="{ active: isActive('/engagement') }" to="/engagement">Engagement</v-btn>
     <v-btn text class="header-btn d-none d-md-flex" :class="{ active: isActive('/contact') }" to="/contact">Contact</v-btn>
     <v-navigation-drawer
       v-model="drawer"
@@ -36,6 +37,9 @@
         </v-list-item>
         <v-list-item @click="navigateTo('/experience')">
           <v-list-item-title>Ervaring</v-list-item-title>
+        </v-list-item>
+        <v-list-item @click="navigateTo('/engagement')">
+          <v-list-item-title>Engagement</v-list-item-title>
         </v-list-item>
         <v-list-item @click="navigateTo('/contact')">
           <v-list-item-title>Contact</v-list-item-title>
