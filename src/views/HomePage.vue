@@ -13,16 +13,16 @@
         <v-btn color="primary" class="home-btn" @click="navigateTo('about')">Meer over mij</v-btn>
       </v-col>
     </v-row>
-    <v-row class="skills-row">
-      <v-col cols="12">
+    <v-row class="skills-row" justify="center">
+      <v-col cols="12" md="8" class="text-center">
         <h2 class="skills-title">Vaardigheden</h2>
-        <v-chip-group class="skills-chip-group">
+        <v-chip-group class="skills-chip-group" column>
           <v-chip class="skill-chip" v-for="skill in marketingSkills" :key="skill">{{ skill }}</v-chip>
         </v-chip-group>
         <v-btn text color="primary" class="link-to-skills" @click="navigateTo('skills')">Meer vaardigheden</v-btn>
       </v-col>
     </v-row>
-    <v-row>
+    <v-row justify="center">
       <v-col cols="12" md="6">
         <v-card class="home-card">
           <v-card-title>Sociaal Engagement</v-card-title>
@@ -67,7 +67,6 @@ export default {
 </script>
 
 <style scoped>
-
 .headline {
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
@@ -163,25 +162,6 @@ export default {
 
 .contact-card {
   text-align: center;
-}
-
-.project-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.project-list li {
-  margin-bottom: 10px;
-}
-
-.project-list a {
-  text-decoration: none;
-  color: #42a5f5;
-  font-weight: 500;
-}
-
-.project-list a:hover {
-  text-decoration: underline;
 }
 
 @keyframes fadeIn {

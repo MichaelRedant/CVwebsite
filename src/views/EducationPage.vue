@@ -45,20 +45,12 @@
     </v-row>
   </v-container>
 </template>
-
 <script>
 export default {
   name: 'EducationPage',
   data() {
     return {
       educations: [
-        {
-          year: '2023 - heden',
-          degree: 'Bachelor Marketing',
-          school: 'Odisee',
-          description: 'Opstarten in september. Bachelor marketing.',
-          icon: 'mdi-school'
-        },
         {
           year: '2018 - 2021',
           degree: 'Graduaat Informatica',
@@ -137,7 +129,6 @@ export default {
   }
 }
 </script>
-
 <style scoped>
 .headline {
   font-family: 'Montserrat', sans-serif;
@@ -187,6 +178,7 @@ export default {
 .education-text, .certificate-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .education-year, .certificate-name {
