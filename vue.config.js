@@ -1,6 +1,9 @@
 const { defineConfig } = require('@vue/cli-service')
 
 module.exports = defineConfig({
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/CVwebsite/' // Vervang 'CVwebsite' door de naam van je repository
+    : '/',
   transpileDependencies: true,
   chainWebpack: config => {
     // Regel voor het verwerken van PDF-bestanden
