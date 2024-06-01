@@ -6,7 +6,6 @@
         <v-expansion-panels>
           <v-expansion-panel v-for="(education, index) in educations" :key="index">
             <v-expansion-panel-header>
-              <v-icon class="education-icon">{{ education.icon }}</v-icon>
               <div class="education-text">
                 <span class="education-year">{{ education.year }}</span>
                 <span class="education-degree">{{ education.degree }}</span>
@@ -25,7 +24,6 @@
         <v-expansion-panels>
           <v-expansion-panel v-for="(certificate, index) in certificates" :key="index">
             <v-expansion-panel-header>
-              <v-icon class="certificate-icon">{{ certificate.icon }}</v-icon>
               <div class="certificate-text">
                 <span class="certificate-name">{{ certificate.name }}</span>
                 <span class="certificate-issuer">{{ certificate.issuer }}</span>
@@ -45,6 +43,7 @@
     </v-row>
   </v-container>
 </template>
+
 <script>
 export default {
   name: 'EducationPage',
@@ -55,27 +54,23 @@ export default {
           year: '2018 - 2021',
           degree: 'Graduaat Informatica',
           school: 'Odisee',
-          description: 'Graduaat informatica - programmeren.',
-          icon: 'mdi-laptop'
+          description: 'Graduaat informatica - programmeren.'
         },
         {
           year: '2013 - 2016',
           degree: 'Orthoptist - Optometrist',
           school: 'Syntra',
-          description: 'Orthoptist - Optometrist, Optiek / Optica.',
-          icon: 'mdi-eye'
+          description: 'Orthoptist - Optometrist, Optiek / Optica.'
         },
         {
           year: '1999 - 2006',
           degree: 'Verkoop / Vertegenwoordiging',
           school: 'Handelsschool Aalst',
-          description: 'Handelsschool Aalst.',
-          icon: 'mdi-account-tie'
+          description: 'Handelsschool Aalst.'
         }
       ],
       certificates: [
         {
-          icon: 'mdi-google',
           name: 'Google Ads-certificeringen',
           issuer: 'Udemy',
           date: 'okt. 2023',
@@ -84,7 +79,6 @@ export default {
           link: 'https://www.udemy.com/certificate/UC-3a9006f8-284f-4cad-bc9f-064ab83e18c2'
         },
         {
-          icon: 'mdi-google',
           name: 'Google Ads Mastery Course',
           issuer: 'Google',
           date: 'mrt. 2023',
@@ -93,42 +87,38 @@ export default {
           link: 'https://www.google.com/certificate/M28J7WCWV'
         },
         {
-          icon: 'mdi-laptop',
           name: 'Graduaat Informatica',
           issuer: 'Odisee',
           date: 'jun. 2021',
-          skills: 'Front-end ontwikkeling · Node.js · Webdesign · HTML5 · JavaScript',
+          skills: 'Front-end ontwikkeling · Node.js · Webdesign · HTML5 · JavaScript'
         },
         {
-          icon: 'mdi-eye',
           name: 'Orthoptist - Optometrist',
           issuer: 'Syntra Midden-Vlaanderen',
           date: 'jul. 2017',
-          skills: 'Optometrie · Contactologie',
+          skills: 'Optometrie · Contactologie'
         },
         {
-          icon: 'mdi-currency-usd',
           name: 'Kredietbemiddeling',
           issuer: 'Febelfin',
-          date: 'jun. 2017',
+          date: 'jun. 2017'
         },
         {
-          icon: 'mdi-office-building',
           name: 'Bedrijfsbeheer',
           issuer: 'KTA Handelsschool Aalst',
-          date: 'jun. 2006',
+          date: 'jun. 2006'
         },
         {
-          icon: 'mdi-handshake',
           name: 'Verkoop Vertegenwoordiging',
           issuer: 'KTA Handelsschool Aalst',
-          date: 'jun. 2006',
+          date: 'jun. 2006'
         }
       ]
     };
   }
 }
 </script>
+
 <style scoped>
 .headline {
   font-family: 'Montserrat', sans-serif;
@@ -152,7 +142,7 @@ export default {
 }
 
 .certificates-title {
-  margin-top: 40px; /* Verhoogt de ruimte tussen de secties */
+  margin-top: 40px;
 }
 
 .v-expansion-panel-header {
@@ -168,17 +158,9 @@ export default {
   background-color: #e0e0e0;
 }
 
-.education-icon, .certificate-icon {
-  margin-right: 10px;
-  color: #42a5f5;
-  font-size: 24px; /* Stel de grootte van de iconen in */
-  align-self: flex-start; /* Link uitlijnen */
-}
-
 .education-text, .certificate-text {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .education-year, .certificate-name {
