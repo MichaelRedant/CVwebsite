@@ -11,6 +11,7 @@
           Ik ben op zoek naar een uitdaging in marketing. Ik ben een toegewijde marketeer en webdesigner. Mijn passie ligt in digitale contentcreatie en ik ben voortdurend gefascineerd door de ontwikkelingen in technologie en marketing binnen het digitale tijdperk.
         </p>
         <v-btn color="primary" class="home-btn" @click="navigateTo('about')">Meer over mij</v-btn>
+        <v-btn color="secondary" class="home-btn" :href="cvLink" download="MichaelRedant_CV.pdf">Download mijn CV (PDF)</v-btn>
       </v-col>
     </v-row>
     <v-row class="skills-row" justify="center">
@@ -48,12 +49,15 @@
 </template>
 
 <script>
+import cvPdf from '@/assets/MichaelRedant.pdf'
+
 export default {
   name: 'HomePage',
   data() {
     return {
       showProfileImage: true,
-      marketingSkills: ['Online Marketing', 'Content Creation', 'Social Media', 'SEO', 'Google Analytics', 'Google Ads', 'Meta Ads', 'Email Marketing', 'Brand Strategy']
+      marketingSkills: ['Online Marketing', 'Content Creation', 'Social Media', 'SEO', 'Google Analytics', 'Google Ads', 'Meta Ads', 'Email Marketing', 'Brand Strategy'],
+      cvLink: cvPdf
     };
   },
   methods: {
@@ -189,7 +193,7 @@ export default {
   }
   to {
     transform: translateX(0);
-    opacity: 1;
+    opacity: 1);
   }
 }
 

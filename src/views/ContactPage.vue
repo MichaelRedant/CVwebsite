@@ -11,6 +11,7 @@
               <v-icon>{{ icon.name }}</v-icon>
             </a>
           </div>
+          <v-btn color="secondary" class="home-btn" :href="cvLink" download="MichaelRedant_CV.pdf">Download mijn CV (PDF)</v-btn>
         </div>
       </v-col>
     </v-row>
@@ -28,7 +29,8 @@ export default {
         { name: 'mdi-linkedin', link: 'https://www.linkedin.com/in/michael-redant' },
         { name: 'mdi-instagram', link: 'https://www.instagram.com/m_redant/' },
         { name: 'mdi-facebook', link: 'https://www.facebook.com/mredant1' }
-      ]
+      ],
+      cvLink: require('@/assets/MichaelRedant.pdf')
     };
   }
 }
@@ -81,5 +83,15 @@ export default {
 
 .social-icons a:hover {
   color: #1e88e5;
+}
+
+.home-btn {
+  margin-top: 20px;
+  background-color: #1abc9c;
+  color: white;
+}
+
+.home-btn:hover {
+  background-color: #16a085;
 }
 </style>
